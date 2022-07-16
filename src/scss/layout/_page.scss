@@ -1,0 +1,9 @@
+.mainSection {
+  display: flex;
+}
+.favourite {
+  border: solid 10px red;
+  &__title {
+    color: red;
+  }
+}

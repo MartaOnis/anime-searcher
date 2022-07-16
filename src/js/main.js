@@ -26,20 +26,17 @@ const renderAnimeFav = () => {
 
 function handleClickFav(event) {
   const idSelect = parseInt(event.currentTarget.id);
-  console.log(`idSElect current target id: ${event.currentTarget.id}`);
-  console.log(`data : ${data}`);
   const animeClick = data.find((anime) => anime.mal_id === idSelect);
-
   const favouriteClick = favourites.findIndex((fav) => fav.mal_id === idSelect);
   if (favouriteClick === -1) {
     favourites.push(animeClick);
   } else {
     favourites.splice(favouriteClick, 1);
   }
-  console.log(`favoritos : ${favourites}`);
-  // Pintar
   renderAnimeFav();
+  renderAnimeResult();
 }
+
 const listenerAnime = () => {
   const liAnime = document.querySelectorAll('.js_liAnime');
   for (const li of liAnime) {
@@ -48,8 +45,17 @@ const listenerAnime = () => {
 };
 const renderAnimeResult = () => {
   let html = '';
+  let classFav = '';
   for (const eachAnimeData of data) {
-    html += `<li class="js_liAnime" id="${eachAnimeData.mal_id}">`;
+    const favouriteIndex = favourites.findIndex(
+      (fav) => eachAnimeData.mal_id === fav.mal_id
+    );
+    if (favouriteIndex !== -1) {
+      classFav = 'favourite';
+    } else {
+      classFav = '';
+    }
+    html += `<li class="js_liAnime ${classFav}" id="${eachAnimeData.mal_id}">`;
     if (
       eachAnimeData.images.jpg.image_url !==
       'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'
@@ -59,9 +65,8 @@ const renderAnimeResult = () => {
       html += `<img src="https://via.placeholder.com/200x200/ffffff/666666/?text=SIN IMAGEN" alt="No hay imagen disponible">`;
     }
 
-    html += `<h2>${eachAnimeData.title}</h2>`;
+    html += `<h2 class="${classFav}__title">${eachAnimeData.title}</h2>`;
     html += `</li>`;
-    console.log(typeof eachAnimeData.mal_id);
   }
   resultUl.innerHTML = html;
   listenerAnime();
