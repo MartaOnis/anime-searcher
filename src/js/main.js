@@ -11,8 +11,16 @@ let data = [];
 const renderAnimeResult = () => {
   let html = '';
   for (const eachAnimeData of data) {
-    html += `<li>`;
-    html += `<img src="${eachAnimeData.images.jpg.image_url}" alt="${eachAnimeData.title}">`;
+    html += `<li class="js_liAnime" id="${eachAnimeData.mal_id}">`;
+    if (
+      eachAnimeData.images.jpg.image_url !==
+      'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'
+    ) {
+      html += `<img src="${eachAnimeData.images.jpg.image_url}" alt="Imagen del anime ${eachAnimeData.title}">`;
+    } else {
+      html += `<img src="https://via.placeholder.com/200x200/ffffff/666666/?text=SIN IMAGEN" alt="No hay imagen disponible">`;
+    }
+
     html += `<h2>${eachAnimeData.title}</h2>`;
     html += `</li>`;
   }
