@@ -1,6 +1,5 @@
 'use strict';
 
-// ELEMENTOS DEL HTML
 const searchInput = document.querySelector('.js_searchInput');
 const searchButton = document.querySelector('.js_searchButton');
 const resetButton = document.querySelector('.js_resetButton');
@@ -9,8 +8,6 @@ const favouritetUl = document.querySelector('.js_favouritetUl');
 
 let data = [];
 let favourites = [];
-
-//Traemos todos los li de resultados para hacer click en ellos y que ocurra algo (se añadan al array favoritos)
 
 const renderAnimeFav = () => {
   let html = '';
@@ -35,6 +32,7 @@ function handleClickFav(event) {
   }
   renderAnimeFav();
   renderAnimeResult();
+  localStorage.setItem('favouritesLS', JSON.stringify(favourites));
 }
 
 const listenerAnime = () => {
@@ -80,9 +78,16 @@ function handleClick(event) {
     .then((response) => response.json())
     .then((json) => {
       data = json.data;
-      console.log(data);
       renderAnimeResult();
     });
 }
-
 searchButton.addEventListener('click', handleClick);
+
+function loadPage() {
+  const FavLocalStorage = JSON.parse(localStorage.getItem('favouritesLS'));
+  if (FavLocalStorage) {
+    favourites = FavLocalStorage;
+    renderAnimeFav();
+  }
+}
+loadPage();
