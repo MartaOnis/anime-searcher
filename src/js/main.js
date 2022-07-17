@@ -5,10 +5,8 @@ const searchBtn = document.querySelector('.js_searchBtn');
 const resetBtn = document.querySelector('.js_resetBtn');
 const resultUl = document.querySelector('.js_resultUl');
 const favouritetUl = document.querySelector('.js_favouritetUl');
-const iconRemove = document.querySelectorAll('.js_iconRemove');
 const deleteFavBtn = document.querySelector('.js_deleteFavBtn');
-
-let data = [];
+let results = [];
 let favourites = [];
 
 function handleBtnReset(event) {
@@ -23,32 +21,43 @@ function handleDeleteFav(event) {
   favourites.splice(0, favourites.length);
   renderAnimeFav();
 }
-
 deleteFavBtn.addEventListener('click', handleDeleteFav);
 
-for (const eachIcon of iconRemove) {
-  eachIcon.addEventListener('click', handleClickFav);
+function handleRemoveFav(event) {
+  const iconRemove = parseInt(event.currentTarget.name);
+  console.log(iconRemove);
+  const favouriteOut = favourites.findIndex((fav) => fav.id === iconRemove);
+  favourites.splice(favouriteOut, 1);
+  renderAnimeFav();
+  renderAnimeResult();
 }
 
+const listenerIcon = () => {
+  const icons = document.querySelectorAll('.js_iconRemove');
+  for (const eachIcon of icons) {
+    eachIcon.addEventListener('click', handleRemoveFav);
+  }
+};
 const renderAnimeFav = () => {
   let html = '';
   for (const eachFav of favourites) {
-    html += `<li class="js_liAnime" id="${eachFav.mal_id}">`;
-    html += `<img src="${eachFav.images.jpg.image_url}" alt="Imagen del anime ${eachFav.title}">`;
+    html += `<li class="js_liFav" id="${eachFav.id}">`;
+    html += `<img src="${eachFav.img}" alt="Imagen del anime ${eachFav.title}">`;
     html += `<div class="divFavourites">`;
     html += `<h2>${eachFav.title}</h2>`;
-    html += `<i class="fa-solid fa-circle-xmark js_iconRemove"></i>`;
+    html += `<img src="./assets/images/cancelar.png" class="js_iconRemove" name="${eachFav.id}"></i>`;
     html += `</div></li>`;
   }
   favouritetUl.innerHTML = html;
   listenerAnime();
+  listenerIcon();
   localStorage.setItem('favouritesLS', JSON.stringify(favourites));
 };
 
 function handleClickFav(event) {
   const idSelect = parseInt(event.currentTarget.id);
-  const animeClick = data.find((anime) => anime.mal_id === idSelect);
-  const favouriteClick = favourites.findIndex((fav) => fav.mal_id === idSelect);
+  const animeClick = results.find((anime) => anime.id === idSelect);
+  const favouriteClick = favourites.findIndex((fav) => fav.id === idSelect);
   if (favouriteClick === -1) {
     favourites.push(animeClick);
   } else {
@@ -67,30 +76,31 @@ const listenerAnime = () => {
 const renderAnimeResult = () => {
   let html = '';
   let classFav = '';
-  for (const eachAnimeData of data) {
+  for (const eachAnime of results) {
     const favouriteIndex = favourites.findIndex(
-      (fav) => eachAnimeData.mal_id === fav.mal_id
+      (fav) => eachAnime.id === fav.id
     );
     if (favouriteIndex !== -1) {
       classFav = 'favourite';
     } else {
       classFav = '';
     }
-    html += `<li class="js_liAnime ${classFav}" id="${eachAnimeData.mal_id}">`;
+    html += `<li class="js_liAnime ${classFav}" id="${eachAnime.id}">`;
     if (
-      eachAnimeData.images.jpg.image_url !==
+      eachAnime.img !==
       'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'
     ) {
-      html += `<img src="${eachAnimeData.images.jpg.image_url}" alt="Imagen del anime ${eachAnimeData.title}">`;
+      html += `<img src="${eachAnime.img}" alt="Imagen del anime ${eachAnime.title}">`;
     } else {
       html += `<img src="https://via.placeholder.com/200x200/ffffff/666666/?text=SIN IMAGEN" alt="No hay imagen disponible">`;
     }
 
-    html += `<h2 class="${classFav}__title">${eachAnimeData.title}</h2>`;
+    html += `<h2 class="${classFav}__title">${eachAnime.title}</h2>`;
     html += `</li>`;
   }
   resultUl.innerHTML = html;
   listenerAnime();
+  listenerIcon();
 };
 
 function handleClick(event) {
@@ -100,7 +110,14 @@ function handleClick(event) {
   fetch(`https://api.jikan.moe/v4/anime?q=${searchAnime}`)
     .then((response) => response.json())
     .then((json) => {
-      data = json.data;
+      results = json.data.map(function (elem) {
+        let returnProp = {
+          img: elem.images.jpg.image_url,
+          title: elem.title,
+          id: elem.mal_id,
+        };
+        return returnProp;
+      });
       renderAnimeResult();
     });
 }

@@ -1,1 +1,1 @@
-.mainSection{display:flex}.favourite{border:solid 10px red}.favourite__title{color:red}
+.mainSection{display:flex}.favourite{border:solid 10px red}.favourite__title{color:red}.divFavourites{display:flex;justify-content:left;align-items:center}
