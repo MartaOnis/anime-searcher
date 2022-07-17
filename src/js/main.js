@@ -1,24 +1,48 @@
 'use strict';
 
 const searchInput = document.querySelector('.js_searchInput');
-const searchButton = document.querySelector('.js_searchButton');
-const resetButton = document.querySelector('.js_resetButton');
+const searchBtn = document.querySelector('.js_searchBtn');
+const resetBtn = document.querySelector('.js_resetBtn');
 const resultUl = document.querySelector('.js_resultUl');
 const favouritetUl = document.querySelector('.js_favouritetUl');
+const iconRemove = document.querySelectorAll('.js_iconRemove');
+const deleteFavBtn = document.querySelector('.js_deleteFavBtn');
 
 let data = [];
 let favourites = [];
+
+function handleBtnReset(event) {
+  event.preventDefault();
+  searchInput.value = '';
+  resultUl.innerHTML = '';
+}
+resetBtn.addEventListener('click', handleBtnReset);
+
+function handleDeleteFav(event) {
+  event.preventDefault();
+  favourites.splice(0, favourites.length);
+  renderAnimeFav();
+}
+
+deleteFavBtn.addEventListener('click', handleDeleteFav);
+
+for (const eachIcon of iconRemove) {
+  eachIcon.addEventListener('click', handleClickFav);
+}
 
 const renderAnimeFav = () => {
   let html = '';
   for (const eachFav of favourites) {
     html += `<li class="js_liAnime" id="${eachFav.mal_id}">`;
     html += `<img src="${eachFav.images.jpg.image_url}" alt="Imagen del anime ${eachFav.title}">`;
+    html += `<div class="divFavourites">`;
     html += `<h2>${eachFav.title}</h2>`;
-    html += `</li>`;
+    html += `<i class="fa-solid fa-circle-xmark js_iconRemove"></i>`;
+    html += `</div></li>`;
   }
   favouritetUl.innerHTML = html;
   listenerAnime();
+  localStorage.setItem('favouritesLS', JSON.stringify(favourites));
 };
 
 function handleClickFav(event) {
@@ -32,7 +56,6 @@ function handleClickFav(event) {
   }
   renderAnimeFav();
   renderAnimeResult();
-  localStorage.setItem('favouritesLS', JSON.stringify(favourites));
 }
 
 const listenerAnime = () => {
@@ -81,7 +104,7 @@ function handleClick(event) {
       renderAnimeResult();
     });
 }
-searchButton.addEventListener('click', handleClick);
+searchBtn.addEventListener('click', handleClick);
 
 function loadPage() {
   const FavLocalStorage = JSON.parse(localStorage.getItem('favouritesLS'));
