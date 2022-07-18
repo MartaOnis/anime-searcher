@@ -70,10 +70,10 @@
   border-radius: 3px;
   font-size: 11px;
   width: 300px;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // justify-content: center;
+  // align-items: center;
 
   &__title {
     background-color: $color-primary;
@@ -84,7 +84,6 @@
   }
   &__list {
     list-style: none;
-    padding-top: 20px;
     max-height: fit-content;
     display: flex;
     flex-direction: column;
@@ -92,11 +91,11 @@
     color: $color-primary;
   }
 }
-
-// .liFav {
-//   display: flex;
-// }
-
+.liFav {
+  padding-top: 20px 5px 10px 5px;
+  display: flex;
+  flex-direction: row;
+}
 .favourite {
   border: solid 10px red;
   &__title {
