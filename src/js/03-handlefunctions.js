@@ -41,5 +41,10 @@ function handleClickFav(event) {
 
 function handleClickSearch(event) {
   event.preventDefault();
-  getDataApi();
+  if (searchInput.value === '') {
+    msgSearch.classList.remove('hidden');
+    resultUl.innerHTML = '';
+  } else {
+    getDataApi();
+  }
 }

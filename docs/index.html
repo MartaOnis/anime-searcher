@@ -5,25 +5,33 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <script src="https://kit.fontawesome.com/2af765be15.js" crossorigin="anonymous"></script>
-  <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="./assets/css/main.css" />
   <link rel="icon" href="./assets/images/babyyoda.png" />
   <title>Buscador anime</title>
 </head>
 
 <body>
-  <main class="main">
+  <header class="header">
       <h1>Buscador de series de Anime</h1>
-      <section>
-          <form action="">
+  </header>
+  <main class="main">
+      <section class="search">
+          <form class="form" action="">
               <label for="search"></label>
-              <input type="text" id="search" name="search" class="js_searchInput" placeholder="Ej: Dragon Ball"
+              <input type="text" id="search" name="search" class="form__input js_searchInput" placeholder="Ej: Dragon Ball"
                   autocomplete="off">
               <button class="js_searchBtn">Buscar</button>
               <button class="js_resetBtn">Reset</button>
           </form>
+          <div class="hidden js_msgSearch">
+              <img src="./assets/images/Buscaralgo.png" alt="Imagen advirtiendo que no has buscado nada">
+          </div>
+
       </section>
-      <section class="mainSection">
+      <section class="render">
           <aside>
               <h2>Series Favoritas</h2>
               <ul class="js_favouritetUl"></ul>

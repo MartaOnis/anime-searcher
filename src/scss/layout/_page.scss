@@ -1,4 +1,26 @@
-.mainSection {
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: 30px;
+  padding-bottom: 30px;
+  background-color: $color-bg;
+  &__input {
+    background-color: $color-input;
+    width: 280px;
+    height: 40px;
+    font-size: 16px;
+    border: solid 1px $color-primary;
+    padding: 6px 9px 7px 9px;
+    margin-bottom: 30px;
+  }
+}
+
+.main {
+  font-family: $font-family;
+}
+.render {
   display: flex;
 }
 .favourite {
@@ -11,4 +33,7 @@
   display: flex;
   justify-content: left;
   align-items: center;
+}
+.hidden {
+  display: none;
 }

@@ -1,24 +1,13 @@
 <main class="main">
-    <h1>Buscador de series de Anime</h1>
-    <section>
-        <form action="">
-            <label for="search"></label>
-            <input type="text" id="search" name="search" class="js_searchInput" placeholder="Ej: Dragon Ball"
-                autocomplete="off">
-            <button class="js_searchBtn">Buscar</button>
-            <button class="js_resetBtn">Reset</button>
-        </form>
+    <section class="search">
+        <include src="./searchForm.html"></include>
+        <div class="hidden js_msgSearch">
+            <img src="./assets/images/Buscaralgo.png" alt="Imagen advirtiendo que no has buscado nada">
+        </div>
+
     </section>
-    <section class="mainSection">
-        <aside>
-            <h2>Series Favoritas</h2>
-            <ul class="js_favouritetUl"></ul>
-            <button class="js_deleteFavBtn">Borrar Favoritos</button>
-        </aside>
-        <article>
-            <h2>Resultados</h2>
-            <ul class="js_resultUl"></ul>
-        </article>
+    <section class="render">
+        <include src="./render.html"></include>
     </section>
 
 </main>

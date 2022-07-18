@@ -1,5 +1,9 @@
-.page__header {
-  display: flex;
-  justify-content: space-evenly;
-  margin-bottom: 3rem;
+.header {
+  font-family: $font-family;
+  font-size: 18px;
+  text-align: center;
+  width: 100vw;
+  padding: 50px 20px 60px 20px;
+  color: $color-primary;
+  background-color: $color-bg;
 }

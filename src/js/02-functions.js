@@ -19,6 +19,8 @@ const renderAnimeFav = () => {
 const renderAnimeResult = () => {
   let html = '';
   let classFav = '';
+  const changeUrl =
+    'https://via.placeholder.com/200x250/ea7b7b/2f2d2d/?text=SIN IMAGEN';
   for (const eachAnime of results) {
     const favouriteIndex = favourites.findIndex(
       (fav) => eachAnime.id === fav.id
@@ -35,7 +37,7 @@ const renderAnimeResult = () => {
     ) {
       html += `<img src="${eachAnime.img}" alt="Imagen del anime ${eachAnime.title}">`;
     } else {
-      html += `<img src="https://via.placeholder.com/200x200/ffffff/666666/?text=SIN IMAGEN" alt="No hay imagen disponible">`;
+      html += `<img src="${changeUrl}" alt="No hay imagen disponible">`;
     }
 
     html += `<h2 class="${classFav}__title">${eachAnime.title}</h2>`;
@@ -59,6 +61,7 @@ const getDataApi = () => {
         };
         return returnProp;
       });
+      msgSearch.classList.add('hidden');
       renderAnimeResult();
     });
 };
