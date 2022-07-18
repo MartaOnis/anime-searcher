@@ -1,4 +1,9 @@
 'use strict';
+
+function handleBubble() {
+  msgBubble.classList.toggle('hidden');
+}
+
 function handleBtnReset(event) {
   event.preventDefault();
   searchInput.value = '';

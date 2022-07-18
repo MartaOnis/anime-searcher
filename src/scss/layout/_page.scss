@@ -62,9 +62,9 @@
   }
 }
 .search_img {
-  position: absolute;
-  background-color: $color-secondary;
-  top: 120px;
+  position: relative;
+  margin-bottom: 30px;
+  margin-top: -50px;
   display: flex;
   justify-content: center;
   align-items: center;

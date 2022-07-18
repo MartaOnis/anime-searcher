@@ -1,7 +1,6 @@
 .header {
   width: 100vw;
   font-family: $font-family;
-  width: 100vw;
   padding-top: 100px;
   padding-bottom: 80px;
   color: $color-primary;
@@ -27,5 +26,13 @@
   &__img {
     width: 280px;
     padding-top: 40px;
+  }
+  &__bubble {
+    position: absolute;
+    top: 20px;
+    @media all and (min-width: 768px) {
+      right: 380px;
+      top: 20px;
+    }
   }
 }

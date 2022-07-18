@@ -1,5 +1,7 @@
 'use strict';
 
+headerImg.addEventListener('mousemove', handleBubble);
+
 resetBtn.addEventListener('click', handleBtnReset);
 
 deleteFavBtn.addEventListener('click', handleDeleteAllFav);
