@@ -1,5 +1,4 @@
 'use strict';
-
 function handleBtnReset(event) {
   event.preventDefault();
   searchInput.value = '';

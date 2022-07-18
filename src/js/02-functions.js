@@ -4,10 +4,10 @@ const renderAnimeFav = () => {
   let html = '';
   for (const eachFav of favourites) {
     html += `<li class="js_liFav liFav" id="${eachFav.id}">`;
-    html += `<img src="${eachFav.img}" alt="Imagen del anime ${eachFav.title}">`;
+    html += `<img src="${eachFav.img}" alt="Imagen del anime ${eachFav.title}" class="imgFav">`;
     html += `<div class="divFavourites">`;
-    html += `<h2>${eachFav.title}</h2>`;
-    html += `<img src="./assets/images/cancelar.png" class="js_iconRemove" name="${eachFav.id}">`;
+    html += `<h2 class="h2Fav">${eachFav.title}</h2>`;
+    html += `<img src="./assets/images/cancelar.png" class="js_iconRemove iconFav" name="${eachFav.id}">`;
     html += `</div></li>`;
   }
   favouritetUl.innerHTML = html;
@@ -30,17 +30,17 @@ const renderAnimeResult = () => {
     } else {
       classFav = '';
     }
-    html += `<li class="js_liAnime ${classFav}" id="${eachAnime.id}">`;
+    html += `<li class="js_liAnime ${classFav} liResults" id="${eachAnime.id}">`;
     if (
       eachAnime.img !==
       'https://cdn.myanimelist.net/img/sp/icon/apple-touch-icon-256.png'
     ) {
-      html += `<img src="${eachAnime.img}" alt="Imagen del anime ${eachAnime.title}">`;
+      html += `<img src="${eachAnime.img}" alt="Imagen del anime ${eachAnime.title}" class="imgRes">`;
     } else {
       html += `<img src="${changeUrl}" alt="No hay imagen disponible">`;
     }
 
-    html += `<h2 class="${classFav}__title">${eachAnime.title}</h2>`;
+    html += `<h2 class="${classFav}__title" h2Res>${eachAnime.title}</h2>`;
     html += `</li>`;
   }
   resultUl.innerHTML = html;
