@@ -17,7 +17,6 @@ function handleDeleteAllFav(event) {
 
 function handleRemoveFav(event) {
   const iconRemove = parseInt(event.currentTarget.name);
-  console.log(iconRemove);
   const favouriteOut = favourites.findIndex((fav) => fav.id === iconRemove);
   favourites.splice(favouriteOut, 1);
   renderAnimeFav();

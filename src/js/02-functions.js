@@ -3,11 +3,11 @@
 const renderAnimeFav = () => {
   let html = '';
   for (const eachFav of favourites) {
-    html += `<li class="js_liFav" id="${eachFav.id}">`;
+    html += `<li class="js_liFav liFav" id="${eachFav.id}">`;
     html += `<img src="${eachFav.img}" alt="Imagen del anime ${eachFav.title}">`;
     html += `<div class="divFavourites">`;
     html += `<h2>${eachFav.title}</h2>`;
-    html += `<img src="./assets/images/cancelar.png" class="js_iconRemove" name="${eachFav.id}"></i>`;
+    html += `<img src="./assets/images/cancelar.png" class="js_iconRemove" name="${eachFav.id}">`;
     html += `</div></li>`;
   }
   favouritetUl.innerHTML = html;

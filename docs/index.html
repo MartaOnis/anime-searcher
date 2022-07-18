@@ -15,6 +15,7 @@
 
 <body>
   <header class="header">
+      <i class="fa-solid fa-2x fa-magnifying-glass header__icon"></i>
       <h1>Buscador de series de Anime</h1>
   </header>
   <main class="main">
@@ -23,23 +24,26 @@
               <label for="search"></label>
               <input type="text" id="search" name="search" class="form__input js_searchInput" placeholder="Ej: Dragon Ball"
                   autocomplete="off">
-              <button class="js_searchBtn">Buscar</button>
-              <button class="js_resetBtn">Reset</button>
+              <button class="form__searchBtn js_searchBtn">Buscar</button>
+              <button class="form__resetBtn js_resetBtn">Reset</button>
           </form>
-          <div class="hidden js_msgSearch">
+          <div class="search_img hidden js_msgSearch">
               <img src="./assets/images/Buscaralgo.png" alt="Imagen advirtiendo que no has buscado nada">
           </div>
 
       </section>
       <section class="render">
-          <aside>
-              <h2>Series Favoritas</h2>
-              <ul class="js_favouritetUl"></ul>
-              <button class="js_deleteFavBtn">Borrar Favoritos</button>
+          <aside class="favs">
+              <h2 class="favs__title">Series Favoritas</h2>
+              <ul class="favs__list js_favouritetUl"></ul>
+              <button class="favs__btn js_deleteFavBtn">Borrar Favoritos</button>
+
           </aside>
-          <article>
+          <article class="results">
+
               <h2>Resultados</h2>
               <ul class="js_resultUl"></ul>
+
           </article>
       </section>
 

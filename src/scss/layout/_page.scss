@@ -1,3 +1,7 @@
+.main {
+  font-family: $font-family;
+  background-color: $color-bg;
+}
 .form {
   display: flex;
   flex-direction: column;
@@ -5,24 +9,94 @@
   align-items: center;
   padding-top: 30px;
   padding-bottom: 30px;
-  background-color: $color-bg;
+
   &__input {
     background-color: $color-input;
-    width: 280px;
-    height: 40px;
-    font-size: 16px;
+    color: $color-secondary;
+    width: 200px;
+    height: 45px;
     border: solid 1px $color-primary;
-    padding: 6px 9px 7px 9px;
-    margin-bottom: 30px;
+    padding: 15px;
+    margin-bottom: 50px;
+    border-radius: 7px;
+  }
+  &__searchBtn {
+    background-color: $color-primary;
+    color: $color-bg;
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+    border: none;
+    font-weight: 700;
+    margin-bottom: 50px;
+    border-radius: 7px;
+  }
+  &__resetBtn {
+    color: $color-secondary;
+    background-color: $color-bg;
+    width: 150px;
+    height: 45px;
+    font-size: 20px;
+    border: solid 1px $color-secondary;
+    font-weight: 700;
+    margin-bottom: 40px;
+    border-radius: 7px;
   }
 }
-
-.main {
-  font-family: $font-family;
+.search_img {
+  position: absolute;
+  background-color: $color-secondary;
+  top: 120px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.hidden {
+  display: none;
 }
 .render {
   display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  @media all and (min-width: 768px) {
+    flex-direction: row;
+    justify-content: center;
+    align-items: flex-start;
+  }
 }
+.favs {
+  border: solid 5px $color-primary;
+  border-radius: 3px;
+  font-size: 11px;
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  &__title {
+    background-color: $color-primary;
+    color: $color-bg;
+    font-weight: 2000;
+    width: 100%;
+    text-align: center;
+  }
+  &__list {
+    list-style: none;
+    padding-top: 20px;
+    max-height: fit-content;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    color: $color-primary;
+  }
+}
+
+// .liFav {
+//   display: flex;
+// }
+
 .favourite {
   border: solid 10px red;
   &__title {
@@ -33,7 +107,4 @@
   display: flex;
   justify-content: left;
   align-items: center;
-}
-.hidden {
-  display: none;
 }
