@@ -14,7 +14,7 @@ const renderAnimeFav = () => {
     }
     html += `<div class="divFavourites">`;
     html += `<h2 class="h2Fav">${eachFav.title}</h2>`;
-    html += `<img src="./assets/images/cancelar.png" class="js_iconRemove iconFav" name="${eachFav.id}">`;
+    html += `<i class="fa-solid fa-2x fa-circle-xmark js_iconRemove iconFav" id="${eachFav.title}"></i>`;
     html += `</div></li>`;
   }
   favouriteUl.innerHTML = html;
@@ -71,31 +71,3 @@ const getDataApi = () => {
       renderAnimeResult();
     });
 };
-
-// const renderAnimeFav = () => {
-//   let html = '';
-//   for (const eachFav of favourites) {
-//     const liElem = document.createElement('li');
-//     liElem.classList.add('js_liFav');
-//     liElem.id = eachFav.id;
-
-//     const imgElem = document.createElement('img');
-//     imgElem.src = eachFav.img;
-//     imgElem.alt = eachFav.title;
-//     liElem.appendChild(imgElem);
-
-//     const divElem = document.createElement('div');
-
-//     const h2Elem = document.createElement('h2');
-//     const h2Text = document.createTextNode(eachFav.title);
-//     h2Elem.appendChild(h2Text);
-//     divElem.appendChild(h2Elem);
-
-//     const iconElem = document.createElement('img');
-//     iconElem.src = './assets/images/cancelar.png';
-//     iconElem.name = eachFav.id;
-//     iconElem.classList.add('js_iconRemove');
-//     divElem.appendChild(iconElem);
-
-//     liElem.appendChild(divElem);
-//     resultUl.appendChild(liElem);

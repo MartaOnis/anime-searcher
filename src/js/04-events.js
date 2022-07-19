@@ -16,7 +16,7 @@ const listenerIconFav = () => {
 const listenerAnime = () => {
   const liAnime = document.querySelectorAll('.js_liAnime');
   for (const li of liAnime) {
-    li.addEventListener('click', handleClickFav);
+    li.addEventListener('click', handleAddFav);
   }
 };
 

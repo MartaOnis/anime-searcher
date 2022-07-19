@@ -20,8 +20,8 @@ function handleDeleteAllFav(event) {
 }
 
 function handleRemoveFav(event) {
-  const iconRemove = parseInt(event.currentTarget.name);
-  const favouriteOut = favourites.findIndex((fav) => fav.id === iconRemove);
+  const iconRemove = event.currentTarget.id;
+  const favouriteOut = favourites.findIndex((fav) => fav.title === iconRemove);
   favourites.splice(favouriteOut, 1);
   renderAnimeFav();
   if (resultUl.innerHTML !== '') {
@@ -29,7 +29,7 @@ function handleRemoveFav(event) {
   }
 }
 
-function handleClickFav(event) {
+function handleAddFav(event) {
   const idSelect = parseInt(event.currentTarget.id);
   const animeClick = results.find((anime) => anime.id === idSelect);
   const favouriteClick = favourites.findIndex((fav) => fav.id === idSelect);

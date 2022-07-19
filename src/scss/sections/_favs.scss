@@ -47,7 +47,8 @@
 .liFav {
   margin: 10px;
   display: flex;
-  flex-direction: row;
+  justify-content: left;
+  align-items: center;
 }
 .imgFav {
   height: 120px;
@@ -63,5 +64,5 @@
   font-size: 11px;
 }
 .iconFav {
-  padding: 7px;
+  padding: 10px;
 }
