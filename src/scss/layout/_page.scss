@@ -1,7 +1,7 @@
 .main {
   width: 100vw;
   font-family: $font-family;
-  background-color: $color-bg;
+  background: linear-gradient($color-bg2, $color-bg);
 }
 .form {
   display: flex;
@@ -14,7 +14,15 @@
     flex-direction: row;
     justify-content: space-evenly;
   }
-
+  &__icon {
+    color: $color-primary;
+    display: none;
+    @media all and (min-width: 768px) {
+      display: inline-block;
+      position: absolute;
+      top: 430px;
+    }
+  }
   &__input {
     background-color: $color-input;
     color: $color-secondary;

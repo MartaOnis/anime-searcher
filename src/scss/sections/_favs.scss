@@ -1,6 +1,6 @@
 .favs {
   border: solid 5px $color-primary;
-  border-radius: 3px;
+  border-radius: 10px;
   font-size: 11px;
   width: 300px;
   display: flex;
@@ -32,15 +32,15 @@
   }
   &__btn {
     color: $color-secondary;
-    background-color: $color-bg;
+    background-color: transparent;
     width: 170px;
     height: 45px;
     font-size: 16px;
-    border: solid 1px $color-secondary;
+    border: solid 2px $color-secondary;
     padding: 5px;
     margin-top: 10px;
     margin-bottom: 30px;
-    border-radius: 7px;
+    border-radius: 10px;
   }
 }
 
