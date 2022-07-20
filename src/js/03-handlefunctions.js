@@ -1,5 +1,10 @@
 'use strict';
 
+function handleLog() {
+  event.preventDefault();
+  console.log(favourites.length);
+}
+
 function handleBubble() {
   msgBubble.classList.toggle('hidden');
 }

@@ -47,6 +47,10 @@ const renderAnimeResult = () => {
     }
 
     html += `<h2 class="${classFav}__title" h2Res>${eachAnime.title}</h2>`;
+    html += `<p class="">${eachAnime.score}</p>`;
+    if (eachAnime.score > 7) {
+      html += `<p class="">Recomendada</p>`;
+    }
     html += `</li>`;
   }
   resultUl.innerHTML = html;
@@ -64,6 +68,7 @@ const getDataApi = () => {
           img: elem.images.jpg.image_url,
           title: elem.title,
           id: elem.mal_id,
+          score: elem.score,
         };
         return returnProp;
       });

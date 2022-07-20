@@ -9,6 +9,7 @@ const deleteFavBtn = document.querySelector('.js_deleteFavBtn');
 const msgSearch = document.querySelector('.js_msgSearch');
 const headerImg = document.querySelector('.js_headerImg');
 const msgBubble = document.querySelector('.js_bubble');
+const logBtn = document.querySelector('.js_logBtn');
 const Urlchange =
   'https://via.placeholder.com/80x110/C05340/272524/?text=SIN IMAGEN';
 
