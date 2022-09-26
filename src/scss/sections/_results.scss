@@ -21,32 +21,41 @@
     text-align: center;
     width: 100%;
     height: 50px;
+    margin-top: 15px;
   }
   &__list {
     list-style: none;
     max-height: fit-content;
     display: flex;
+    // justify-content: center;
+    // align-items: center;
     flex-wrap: wrap;
     color: $color-secondary;
-    padding-top: 20px;
-    margin-bottom: 20px;
-    display: flex;
-    flex-wrap: wrap;
+    // padding-top: 20px;
+    // margin-bottom: 20px;
   }
 }
 .liResults {
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
+  height: 300px;
   width: 200px;
-  margin: 7px;
+  margin: 8px;
 }
 .imgRes {
+  width: 130px;
   height: 190px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
 }
 .h2Res {
-  font-size: 17px;
+  font-size: 18px;
+  text-align: center;
+  padding: 10px;
+  width: 190px;
 }
 .favourite {
   border: solid 8px $color-primary;

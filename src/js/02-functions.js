@@ -47,10 +47,10 @@ const renderAnimeResult = () => {
     }
 
     html += `<h2 class="${classFav}__title" h2Res>${eachAnime.title}</h2>`;
-    html += `<p class="">${eachAnime.score}</p>`;
-    if (eachAnime.score > 7) {
-      html += `<p class="">Recomendada</p>`;
-    }
+    // html += `<p class="">${eachAnime.score}</p>`;
+    // if (eachAnime.score > 7) {
+    //   html += `<p class="">Recomendada</p>`;
+    // }
     html += `</li>`;
   }
   resultUl.innerHTML = html;

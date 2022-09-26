@@ -51,7 +51,11 @@
   align-items: center;
 }
 .imgFav {
+  width: 100px;
   height: 120px;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 6px;
 }
 
 .divFavourites {
