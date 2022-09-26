@@ -1,7 +1,7 @@
 'use strict';
 logBtn.addEventListener('click', handleLog);
 
-headerImg.addEventListener('mousemove', handleBubble);
+headerImg.addEventListener('click', handleBubble);
 
 resetBtn.addEventListener('click', handleBtnReset);
 
